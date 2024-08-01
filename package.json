@@ -1,0 +1,20 @@
+{
+  "name": "challenge",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/allison": "^5.0.20",
+    "astro": "^4.12.3",
+    "npm": "^10.8.2",
+    "sharp": "^0.33.4",
+    "tailwindcss": "^3.4.7"
+  }
+}

@@ -1,0 +1,32 @@
+---
+import  placeholderItem  from '../../assets/placeholder-images-product.png'
+import '@fontsource/allison';
+
+export interface Props {
+  title: string;
+  price: string;
+  reviews?: number;
+  originalPrice?: string;
+  savePercentage?: number;
+}
+
+const { title, price, reviews, originalPrice, savePercentage } = Astro.props;
+
+const [priceWhole, priceCents] = price.split('.');
+const [originalPriceWhole, originalPriceCents] = originalPrice ? originalPrice.split('.') : [0o0,0o0];
+---
+
+<div class="relative w-1/4 flex flex-col text-left p-[10px] rounded-[10px] shadow-card bg-white">
+  <div class="relative"><img src={placeholderItem.src} alt='card-placeholder-image' class='w-full' /><div class="absolute bottom-0 left-0 bg-[#fd7d5e] text-white text-base font-bold z-10 rounded-[50px] px-4 pt-1 pb-[5px]">{savePercentage ? 'Sale' : 'New'}</div></div>
+  <div class="pt-[10px] pb-[15px]"><p class=`break-words text-lg leading-5 font-bold hover:text-primary-dark ${reviews > 0 ? 'mb-0': 'mb-6'}`>{title}</p>{reviews > 0 && <span class="font-medium text-lg">⭐⭐⭐⭐⭐{reviews} reviews</span>}</div>
+  <hr class="border-t border-t-primary my-[9px]">
+  <div class="flex justify-between py-[9px]">
+    <span class="text-primary-dark text-4xl font-bold">{savePercentage && <small class="text-lg">Now</small>} ${priceWhole}. <sup>{priceCents}</sup></span>
+    {savePercentage && <span class="relative text-[#9f9f9f] text-4xl font-bold ">${originalPriceWhole}. <sup>{originalPriceCents}</sup> <span class="absolute left-0 top-2/4 right-0 border-t-2 border-t-[#9f9f9f] -rotate-[15deg]"/></span>}
+  </div>
+  <div class="flex justify-between items-center mt-3 pb-[6px]">
+    <div class="rounded-[50px] bg-primary-dark text-white text-center px-4 py-3 font-bold">Add to basket</div>
+    <span class="text-lg font-bold underline hover:text-primary-dark">More info</span>
+    </div>
+    {savePercentage && <div class="absolute -top-2 -right-2 z-10 flex flex-col justify-center items-center rounded-full bg-[#fdc65e] shadow-card w-16 h-16"><span class="text-[2rem] leading-4 p-[2px] font-light font-['allison']">Save</span><span class="text-base leading-4 font-bold">{savePercentage}%</span></div>}
+</div>

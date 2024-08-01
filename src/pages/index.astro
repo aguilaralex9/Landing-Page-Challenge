@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/sections/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import BestSellers from '../components/sections/BestSellers.astro';
+import BrandWeLove from '../components/sections/BrandWeLove.astro';
+import NewArrivals from '../components/sections/NewArrivals.astro';
+import BundlesAndBoxes from '../components/sections/BundlesAndBoxes.astro'
+import Sale from '../components/sections/Sale.astro';
+---
+
+<Layout title="Landing Page Challenge">
+	<main>
+		<Header />
+		<div class="px-40 bg-white">
+			<Hero />
+			<BestSellers />
+			<NewArrivals />
+			<BundlesAndBoxes />
+			<Sale />
+			<BrandWeLove />
+		</div>
+	</main>
+</Layout>
